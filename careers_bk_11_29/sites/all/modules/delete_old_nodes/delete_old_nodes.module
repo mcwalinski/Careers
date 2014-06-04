@@ -1,0 +1,22 @@
+<?php
+//cron hook
+function profeng_cron()
+{
+deleteagednodes('example');
+}
+//function to delete content by tyoe that is over 30 days old
+function deleteagednodes($contenttype)
+{
+$expired_time = strtotime('-5 seconds');
+$query = db_query("SELECT nid, uid FROM {node} AS n WHERE type = '%s' and created <= '%s'", $contenttype, $expired_time);
+while($del = db_fetch_object($query))
+{
+global $user;
+$owner_account = user_load(array('uid' => $del->uid));
+$temp_user = $user;
+$user = $owner_account;
+$this_edit['nid'] = $del->nid;
+node_delete($this_edit);
+$user = $temp_user;
+}
+}

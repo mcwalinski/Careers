@@ -1,0 +1,42 @@
+body {
+    margin:0px;
+    padding:0px;
+    text-align:center;
+    font: normal 14px/16px Verdana, sans-serif;
+    background-image:url('/careers/wp-content/themes/careers/errors/wpm_bg.jpg');
+    background-repeat:repeat-x;
+}
+#wrap { /* shell that sets width and centered */
+    width:630px;
+    height:400px;
+    margin:20px auto 0px;
+    padding:10px;
+    text-align:left;
+    background-color:white;
+}
+#logo {
+    background:url('/careers/wp-content/themes/careers/errors/wpm_logo.jpg') 140px 25px no-repeat;
+    height:150px;
+}
+div#errorsContainer {
+	/* width:600px; change this to match space to fit in */
+	margin-bottom:15px;
+    -moz-border-radius: 10px;
+	border: 2px solid #900;
+	background:#F7E7DA url(/careers/wp-content/themes/careers/errors/errorBG.gif) 10px 10px no-repeat;
+	* padding-top:10px;
+}
+div#errors {
+	font-size:12px;
+	margin-left:40px;
+	/*width:535px;  change this to match space to fit in */
+	padding:0px 10px;
+    min-height:35px;
+    height:auto !important;
+    height:35px;
+}
+p.errorCode {
+	color:#999;
+	font-size:10px;
+}
+.bold { font-weight:bold; }

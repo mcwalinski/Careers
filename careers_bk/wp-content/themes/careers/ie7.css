@@ -1,0 +1,21 @@
+/*#leftNav ul.subLevel li{
+    padding:10px 10px 0px 0px;
+}*/
+#header #siteTagLine {
+    line-height:30px;
+    position:relative;
+    top:22px;
+}
+#didYouKnow #dykFact {
+    margin:-5px 50px 0px 175px;
+}
+div#errors p{
+    margin-top:0px;
+    margin-bottom:0px;
+}
+#leftNav #quotes img.leftQuote {
+    margin-top:15px;
+}
+#content li {
+	list-style-image: none;
+}

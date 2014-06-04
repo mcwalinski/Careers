@@ -1,0 +1,334 @@
+/*
+Theme Name: Washington Post Media Careers
+Theme URI: http://washingtonpostmedia.com/careers
+Description: The theme for The Washington Post Media's Careers website.
+Version: 1.0
+Author: Justin Anderson-Pomeroy, Jessica Witmer, Linda Williams
+*/
+
+/* float styles */
+.floatClear			{ clear:both; height:0px;line-height:0px; }
+.left				{ float:left; }
+.right				{ float:right; }
+
+/* display styles */
+.inline				{ display:inline; }
+.show				{ display:block; }
+.hide				{ display:none; }
+.absolute           { position:absolute; }
+.relative           { position:relative; }
+
+/* text styles */
+.bold				{ font-weight:bold; }
+.normal				{ font-weight:normal; }
+.req               	{ font-size:12px; color:#900; }
+.grey				{ color:#666; }
+.black				{ color:#000; }
+.redText			{ color:#620808; }
+.smalltext			{ font-size:10px; }
+.ten     			{ font-size:10px; }
+.twelve 			{ font-size:12px; }
+.fourteen			{ font-size:14px; }
+
+/* layout styles */
+.pad				{ padding:10px; }
+.padTop             { padding-top:10px; }
+.padRight           { padding-right:10px; }
+.padBottom          { padding-bottom:10px; }
+.padLeft            { padding-left:10px; }
+.rightSpace			{ margin-right:10px; }
+
+/* link styles */
+.pointer			{ cursor:pointer; }
+.smallLink			{ font-size:10px; font-weight:normal; }
+
+/* input styles */
+.bigInput,.midInput,
+.smallInput			{ margin:0px 5px 5px 0px; }
+.pairInput			{ margin:0px 5px 5px 0px; }
+select.bigInput		{ width:308px; }
+.bigInput			{ width:300px; }
+textarea.bigInput	{ height:150px; }
+.pairInput			{ width:93px; }
+.midInput			{ width:125px; }
+.smallInput			{ width:75px; }
+.label				{ font-size:.8em; font-weight:bold; margin-bottom:5px; }
+input, select       { border:1px solid #808080; padding:3px; }
+input.radio         { border:0px; }
+label               { font-size:.8em; font-weight:bold; margin-bottom:5px; }
+
+/* html element styles */
+.tagline {
+	font-size: 28px;
+	color: black;
+	font-weight: normal;
+}
+
+h1, h3, h4, h6 {
+    margin-top:0px;
+}
+
+h1 {
+	font-size: 24px;
+	line-height: 1.4em;
+	color: black;
+	font-weight: normal;
+	margin-bottom: 5px;
+}
+
+h2 {
+	font-size: 18px;
+	line-height: 1.6em;
+	color: gray;
+	font-weight: normal;
+}
+
+h3 {
+	font-size: 16px;
+	color: black;
+	font-weight: bold;
+	margin-bottom: -10px;
+	color: #333333;
+}
+
+h4 {
+	color: black;
+	font-size: 14px;
+	font-weight: bold;
+    margin: 20px 0px 5px 25px;
+	color: #333333;
+}
+
+h5 {
+	margin-left: 25px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.8em;
+	color: #333333;
+}
+
+h6 {
+	color: #333333;
+	font-size: 11px;
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+p {
+	line-height: 1.8em;
+	color: #333333;
+	font-size: 14px;
+}
+
+a:link {
+    color: #00619d;
+    text-decoration:none;
+}
+a:link:hover {
+	text-decoration:underline;
+}
+a:visited {
+    color: #00619d;
+    text-decoration:none;
+}
+a:visited:hover {
+    color: #00619d;
+	text-decoration:underline;
+}
+
+.dottedPipe{
+    height:20px;
+    width:1px;
+    margin:0px 10px;
+    background:url('images/dots.gif') -259px 0px repeat-y;
+}
+
+/* page styles */
+body {
+    margin:0px;
+    padding:0px;
+    text-align:center;
+    font: normal 14px/16px Verdana, sans-serif;
+    background:#003454 url('../images/bg_body.jpg') 0px 0px repeat-x;
+}
+#wrap { /* shell that sets width and centered */
+    width:977px;
+    margin:0px auto;
+    padding:0px 0px 0px 0px;
+    text-align:left;
+    background:url('../images/bg_canvas.png') repeat-y;
+}
+#background {
+    background:url('../images/bg_logos.png') 0px 0px no-repeat;
+}
+#page { /* sets internal content area */
+    padding:0px 15px 0px 10px;
+    min-height:100px;
+    height:auto !important;
+    * height:100px;
+}
+#wpmIntro {
+    padding:0px 30px;
+}
+#blocksCaps,
+#blocksBody,
+#blocksFeet {
+    margin:0px 8px;
+}
+#blocksCaps{
+    height:18px;
+    background:url('../images/bg_sprite.png') -20px -105px no-repeat;
+}
+#blocksBody {
+    background:url('../images/bg_blocksBody.png') 0px 0px repeat-y;
+    position:relative;
+    top:0px;
+    left:0px;
+}
+#leftBlock,
+#middleBlock,
+#rightBlock {
+    float:left;
+    font-size:12px;
+    color:gray;
+    line-height:1.8em;
+}
+.blockHead {
+    margin-top:0px;
+    line-height:1em;
+    color: #333;
+	font-weight: normal;
+}
+#leftBlock {
+    margin-left:25px;
+    width: 285px;
+}
+#middleBlock {
+    margin-left:65px;
+    width: 285px;
+}
+#rightBlock {
+    margin-left:60px;
+    width: 190px;
+}
+#blocksFeet {
+    background:url('../images/bg_sprite.png') -20px -176px no-repeat;
+    height:18px;
+}
+/* header styles */
+#headerContainer {
+    width:977px;
+    height:370px;
+    position:relative;
+}
+#header {
+    position:relative;
+    top:200px;
+    left:43px;
+}
+#productTWP,
+#productWPD,
+#productExpress,
+#productElTiempo,
+#productMobile {
+    float:left;
+    width:164px;
+    height:140px;
+    margin-right:14px;
+    cursor:pointer;
+}
+#productMobile {
+    margin-right:0px;
+}
+/* global navigation styles */
+#globalNav {
+    height:15px;
+    width:967px;
+    font-size:10px;
+    line-height:12px;
+    padding-left:10px;
+    color:white;
+}
+#globalNav a.navLink {
+    padding:0px 10px 0px 8px;
+    text-decoration:none;
+    color:white;
+}
+#globalNav a.navLink:hover {
+    text-decoration:underline;
+}
+#globalNav a.first {
+    padding-left:0px;
+}
+/* breadcrumb styles */
+/* page content styles */
+#content {
+    position:relative;
+}
+#content ul,
+#content li {
+    margin:0 0 0 -10px;
+    list-style-type:disc;
+    list-style-position:outside;
+	list-style-image: url('../images/bullet.gif');
+}
+/* footer styles */
+#footer {
+    width:977px;
+    height:85px;
+    position:relative;
+    background:url('../images/bg_sprite.png') 0px 5px no-repeat;
+}
+#footer #twp,
+#footer #wpCom,
+#footer #express,
+#footer #mobile,
+#footer #elTiempo {
+    position:absolute;
+    top:50px;
+    height:20px;
+    cursor:pointer;
+}
+#footer #twp {
+    left:15px;
+    width:140px;
+    background-position:-10px -10px;
+}
+#footer #wpCom {
+    left:170px;
+    width:145px;
+    background-position:-162px -10px;
+}
+#footer #express {
+    left:170px;
+    width:85px;
+    background-position:-327px -8px;
+}
+#footer #elTiempo {
+    left:275px;
+    width:108px;
+    background-position:-433px -9px;
+}
+#footer #mobile {
+    left:562px;
+    width:120px;
+    background-position:-560px -8px;
+}
+#footer #links {
+    float:right;
+    width:270px;
+    margin-right:25px;
+    position:relative;
+    top:50px;
+}
+#footer #links span{
+    float:right;
+    padding:0px 5px;
+}
+.copyright {
+    font-size:12px;
+    width:977px;
+    margin:0px auto;
+    padding:10px 0px;
+    text-align:left;
+}

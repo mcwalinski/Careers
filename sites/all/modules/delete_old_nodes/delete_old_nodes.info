@@ -1,0 +1,4 @@
+name = Delete old nodes
+description = Deletes nodes older than 30 days.
+package = Custom
+core = 7.x

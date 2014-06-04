@@ -1,0 +1,6 @@
+name = Careers Function Library
+description = This module contains PHP helper functions for the careers site.
+core = 7.x
+package = "CareersFunctions"
+
+version = "7.x-X.X"

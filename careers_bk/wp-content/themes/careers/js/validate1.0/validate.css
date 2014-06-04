@@ -1,0 +1,211 @@
+/********** PAGE STYLES **********/
+/*body {
+	font: 12px/14px normal Arial,Helvetica,sans-serif;
+}
+.floatClear { clear:both; height:1px; }
+.element {
+	background-color:#DDD;
+	width:600px;
+	padding:10px;
+}
+.element input, .element select {
+	width:200px;
+	margin-right:25px;
+	border:1px solid grey;
+	padding:3px;
+}
+.element input.submit {
+	width:auto;
+	float:right;
+}
+.column {
+	float:left;
+	width:620px;
+}
+#errors {
+	font-size:14px;
+	font-weight:bold;
+	padding:10px;
+}*/
+/*********************************/
+
+/* STYLES FOR ERROR POPUP BUBBLE */
+div.error {
+	font: 12px/14px normal Arial,Helvetica,sans-serif;
+	position:absolute;
+	z-index:1000;
+	padding:10px;
+	text-align:left;
+	max-width: 250px;
+	width: auto !important;
+	width: 250px;
+	background-color:#F9EFD6;
+	border-top: 1px solid #900;
+	border-right: 2px solid #900;
+	border-bottom: 2px solid #900;
+	border-left: 1px solid #900;
+}
+
+div.upArrow, div.downArrow {
+	z-index:1001;
+	width:15px;
+	height:8px;
+}
+div.upArrow {
+	background: url(images/upArrow.gif) top left no-repeat;
+	position:absolute;
+	top:-8px;
+	left:20px;
+}
+div.downArrow {
+	background: url(images/downArrow.gif) top left no-repeat;
+	position:relative;
+	top:8px;
+	* top:15px;
+	left:10px;
+}
+
+/**** STYLES FOR FIELD ERRORS ****/
+input, select, textarea {
+	border:1px solid #808080;
+	padding:3px;
+}
+input.check {
+	border:none;
+}
+input.fieldError, select.fieldError, textarea.fieldError {
+	background-color:#ebcccc;
+	border:1px solid #900;
+}
+
+/**** STYLES FOR PAGE ERRORS *****/
+div#errorsContainer {
+	display:none;
+	/* width:600px; change this to match space to fit in */
+	margin-bottom:15px;
+    -moz-border-radius: 10px;
+	border: 2px solid #900;
+	background:#F7E7DA url(images/errorBG.gif) 10px 10px no-repeat;
+	* padding-top:10px;
+}
+div#errors {
+	font-size:12px;
+	margin-left:40px;
+	/*width:535px;  change this to match space to fit in */
+	padding:0px 10px;
+    min-height:35px;
+    height:auto !important;
+    * height:35px;
+}
+div#errors ul, div#errors li {
+	margin-left:0px;
+	padding-left:0px;
+}
+
+div#errors h2 {
+    margin: 0 10px;
+    padding: 8px 0;
+    font: bold 12px/1em Verdana, Arial, Helvetica, Sans-serif;
+    color: #000;
+}
+div#messagesContainer {
+	font-size:14px;
+	display:none;
+	/* width:600px; change this to match space to fit in */
+	margin-bottom:15px;
+    -moz-border-radius: 10px;
+	border: 2px solid #A58120;
+	background:#F0E89B url(images/messageBG.gif) 0px 0px no-repeat;;
+	* padding-top:10px;
+}
+div#messages {
+	margin-left:40px;
+	/*width:535px;  change this to match space to fit in */
+	padding:0px 10px;
+    min-height:30px;
+    height:auto !important;
+    * height:30px;
+}
+div#messages ul, div#messages li {
+	list-style-type:none;
+	margin-left:0px;
+	padding-left:0px;
+	list-style-position:inside;
+}
+/* RATINGS */
+/* INPUT STYLES */
+div.leftEmpty, div.leftFull, div.rightEmpty, div.rightFull {
+	width:9px;
+	height:18px;
+	cursor:pointer;
+	float:left;
+}
+div.rightEmpty, div.rightFull {
+	margin-right:2px;
+}
+div.leftEmpty{
+	background: url('images/star_leftEmpty.gif') top left no-repeat;
+}
+div.rightEmpty {
+	background: url('images/star_rightEmpty.gif') top left no-repeat;
+}
+div.leftFull {
+	background: url('images/star_leftFull.gif') top left no-repeat;
+}
+div.rightFull {
+	background: url('images/star_rightFull.gif') top left no-repeat;
+}
+div.stars {
+	padding:6px;
+	width:100px;
+}
+div.fieldError {
+	width:100px;
+	background-color:#ebcccc;
+	padding:5px;
+	border:1px solid #900;
+}
+
+div.starRating {
+	width:100px;
+	height:18px;
+}
+div.starReviews {
+	float:left;
+	margin:2px 0px 0px 5px;
+    font-weight:normal;
+}
+div.star_unrated {
+	background: url('images/stars_unrated.gif') top left no-repeat;
+}
+div.star_half {
+	background: url('images/stars_0_5.gif') top left no-repeat;
+}
+div.star_one {
+	background: url('images/stars_1_0.gif') top left no-repeat;
+}
+div.star_oneHalf {
+	background: url('images/stars_1_5.gif') top left no-repeat;
+}
+div.star_two {
+	background: url('images/stars_2_0.gif') top left no-repeat;
+}
+div.star_twoHalf {
+	background: url('images/stars_2_5.gif') top left no-repeat;
+}
+div.star_three {
+	background: url('images/stars_3_0.gif') top left no-repeat;
+}
+div.star_threeHalf {
+	background: url('images/stars_3_5.gif') top left no-repeat;
+}
+div.star_four {
+	background: url('images/stars_4_0.gif') top left no-repeat;
+}
+div.star_fourHalf {
+	background: url('images/stars_4_5.gif') top left no-repeat;
+}
+div.star_five {
+	background: url('images/stars_5_0.gif') top left no-repeat;
+}
+

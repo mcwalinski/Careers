@@ -1,0 +1,18 @@
+bizLink=<a href="http://washingtonpostmedia.com/careers/?category_name=business" target="_top">Is this career right for me?</a>
+
+&niwsLink=<a href="http://washingtonpostmedia.com/careers/?category_name=news" target="_top">Is this career right for me?</a>
+
+&slesLink=<a href="http://washingtonpostmedia.com/careers/?category_name=sales" target="_top">Is this career right for me?</a>
+
+&prdLink=<a href="http://washingtonpostmedia.com/careers/?category_name=production" target="_top">Is this career right for me?</a>
+
+&tchLink=<a href="http://washingtonpostmedia.com/careers/?category_name=technology" target="_top">Is this career right for me?</a>
+
+&inLink=<a href="http://washingtonpostmedia.com/careers/?category_name=wheredoifit" target="_top">see which career is right for you</a>
+
+
+&theserch=<a href="http://washingtonpostmedia.com/careers/?category_name=searchopenings" target="_top">Search opportunities</a>
+
+&theserchin=<a href="http://washingtonpostmedia.com/careers/?category_name=searchopenings" target="_top">search opportunities.</a>
+
+

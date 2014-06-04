@@ -1,0 +1,80 @@
+/*#leftNav ul.subLevel li{
+    padding: 10px 10px 0px 0px;
+}*/
+#didYouKnow #dykFact {
+    margin:0px 50px 0px 175px;
+    padding:5px 0px 0px 0px;
+}
+#breadcrumbs #crumbs {
+    background:url('images/bg_pageBody.png') 244px 3px no-repeat;
+    margin-right:0px;
+    padding-right:22px;
+}
+#pageBody {
+    background:url('images/bg_pageBody.png') -18px -37px no-repeat;
+    width:667px;
+    margin-right:4px;
+    padding-right:5px;
+}
+#homePageBody {
+    margin:0px 4px 0px 0px;
+    width:940px;
+    padding-right:2px;
+}
+#homePageBody #homePageBG #careerCenter #ccIcons #iconText {
+    width:100px;
+    margin:25px 0px 0px 0px;
+    padding-right:10px;
+}
+#homePageBody #homePageBG #careerCenter #ccIcons {
+    width:455px;
+}
+#content.twoCol{
+    margin:0px;
+}
+#content.twoCol ul{
+    margin-left:40px;
+}
+#content li {
+	list-style-image: none;
+}
+#rightCol {
+    width:175px;
+    margin-right:0px;
+}
+#leftNav #quotes img.leftQuote {
+    margin:15px 10px 15px 0px;
+}
+#content.oneCol div.profilePost {
+    position:relative;
+    top:-10px;
+}
+#content.oneCol div.profileOverText {
+    top:30px;
+}
+#content.oneCol div.profileOverText h3 {
+    padding-top:5px;
+}
+#content.oneCol div#profilePaging {
+    top:-30px;
+}
+#pageBody #yapbMain {
+    margin-right:0px;
+}
+#pageBody h1.unloopHeadline {
+    margin:0px 0px 5px 0px;
+}
+#header #siteTagLine {
+    line-height:30px;
+    top:22px;
+}
+div#errors p{
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+
+#leftNav p.menuPage {
+    padding-top:7px;
+    height:28px;
+}

@@ -1,0 +1,252 @@
+<?php
+/**
+* Function Description
+* @param function_parameter
+* @returns function output description
+*
+* function names must begin with "careers_func"
+*
+*/
+
+//extract text from xml tweet data and parse for shortened urls
+function careers_func_parse_tweets($tweet) {
+	$text = (string) $tweet->text[0];
+	$text = preg_replace('@(https?://([-\w\.]+)+(/([\w/_\.]*(\?\S+)?(#\S+)?)?)?)@','<a href="$1">$1</a>',$text);
+
+	return $text;
+}
+
+function careers_func_parse_fb($post) {
+	$post = (string)$post;
+	$end = strpos($post,"<br/><br/><br/>");
+	if ($end != false) {
+		$post = substr($post,0,$end);
+	}
+	
+	
+	return $post;
+}
+
+function careers_func_paginate() {
+	$html = <<<__HTML__
+		<script>
+		function pag(num) {
+		    if (num == 1) {
+			   document.getElementById("feed_one").style.display="block";
+			   document.getElementById("feed_two").style.display="none";
+			   document.getElementById("feed_three").style.display="none";
+			}
+		    if (num == 2) {
+			   document.getElementById("feed_one").style.display="none";
+			   document.getElementById("feed_two").style.display="block";
+			   document.getElementById("feed_three").style.display="none";
+			}
+		    if (num == 3) {
+			   document.getElementById("feed_one").style.display="none";
+			   document.getElementById("feed_two").style.display="none";
+			   document.getElementById("feed_three").style.display="block";
+			}
+		
+		};
+		</script>
+		
+		<a href="javascript:void(0)" onClick="pag(1)">1</a>
+		<a href="javascript:void(0)" onClick="pag(2)">2</a>
+		<a href="javascript:void(0)" onClick="pag(3)">3</a>
+	
+__HTML__;
+
+print $html;
+}
+
+function careers_func_build_feed($feed) {
+	$feed = array_slice($feed,0,9);
+	echo '<ul id="news">';
+	echo "<div id='feed_one'>";
+
+
+	$c = 0;
+
+	foreach ($feed as $item) {
+			$text = $item['text'];
+			$date = $item['date'];
+			$avatar = $item['avatar'];
+			$id = key($item);
+			
+			echo '<li class="news_item">';
+			echo '<div class="news_src"><img src="' . $avatar . '" alt="twitter avatar"/></div>' ;
+			echo '<div class="news_content">' .  $text . '</div>';
+			if ($date == 0) {
+			  echo '<div class="news_date">Posted today.</div>';
+			}
+			else {
+			  echo '<div class="news_date">Posted ' . $date . ' days ago.</div>';
+			}
+			if ($item['id']) {
+              echo '<div class="rrf"> ';
+			  echo '<a href="https://twitter.com/intent/retweet?tweet_id=' . $item['id'] . '"> retweet </a>';
+			  echo '<a href="https://twitter.com/intent/tweet?in_reply_to='  . $item['id']. '">reply</a>';
+			  echo '<a href="https://twitter.com/intent/favorite?tweet_id=' . $item['id']. '"> favorite</a>';
+              echo '</div>';
+			}
+			echo '</li>';
+			
+			$c = $c + 1;
+			if ($c == 3) {
+			  echo "</div><div id='feed_two'>";
+			}
+			else if ($c == 6) {
+			   echo   "</div><div id='feed_three'>";
+			}
+		}
+	
+	echo '</div>';
+	careers_func_paginate();
+	echo '</ul>';
+}
+
+/**
+* Implement hook view api. 
+* This is necessary for views/careers_fun.views_default.inc to generate views
+*/
+function careers_func_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'careers_func')
+  );
+}
+
+function careers_func_sanitize($string = '', $is_filename = FALSE)
+{
+ // Replace all weird characters with dashes
+ $string = preg_replace('/[^\w\-'. ($is_filename ? '~_\.' : ''). ']+/u', '', $string);
+
+ // Only allow one dash separator at a time (and make string lowercase)
+ return mb_strtolower(preg_replace('/--+/u', '-', $string), 'UTF-8');
+}
+
+function careers_func_list_openings($vid) {
+	$pole = array();
+	$terms = taxonomy_get_tree($vid);
+
+	//for each tag, print the tag name and the number of nodes with that tag
+	foreach ( $terms as $term ) {
+	$count = db_query("SELECT COUNT(nid) FROM {taxonomy_index} WHERE tid = :aid", array(':aid' => $term->tid) )->fetchField();
+	  $pole[]=Array (l($term->name, "taxonomy/term/$term->tid") , " $count", $term->depth, $count, $term->tid)  ;
+	}
+	  foreach ($pole as $list) 
+	{
+		$title = $list[0];
+		$count = $list[1];
+		echo "\n<li>$title $count</li>";
+
+	}
+}
+
+function careers_func_disguise_curl($url) 
+{ 
+  $curl = curl_init(); 
+ 
+  // Setup headers - the same headers from Firefox version 2.0.0.6 
+  // below was split up because the line was too long. 
+  $header[0] = "Accept: text/xml,application/xml,application/xhtml+xml,"; 
+  $header[0] .= "text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"; 
+  $header[] = "Cache-Control: max-age=0"; 
+  $header[] = "Connection: keep-alive"; 
+  $header[] = "Keep-Alive: 300"; 
+  $header[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7"; 
+  $header[] = "Accept-Language: en-us,en;q=0.5"; 
+  $header[] = "Pragma: "; // browsers keep this blank. 
+ 
+  curl_setopt($curl, CURLOPT_URL, $url); 
+  curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla'); 
+  curl_setopt($curl, CURLOPT_HTTPHEADER, $header); 
+  curl_setopt($curl, CURLOPT_REFERER, ''); 
+  curl_setopt($curl, CURLOPT_ENCODING, 'gzip,deflate'); 
+  curl_setopt($curl, CURLOPT_AUTOREFERER, true); 
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); 
+  curl_setopt($curl, CURLOPT_TIMEOUT, 10); 
+ 
+  $html = curl_exec($curl); // execute the curl command 
+  curl_close($curl); // close the connection 
+ 
+  return $html; // and finally, return $html 
+} 
+
+function careers_func_sort($a,$b) {
+	return $a["date"] - $b["date"];
+}
+
+function careers_func_get_sort_by() {
+	$sort = 'field_type';
+	if (isset($_GET['sort_by'])) {
+		if ($_GET['sort_by'] == 'field_jobcity_tid') {
+			$sort = 'field_jobcity';
+			echo 'here';
+		}
+		elseif ($_GET['sort_by'] == 'field_department_tid') {
+			$sort = 'field_department';
+		}
+		else { $sort = 'field_type'; }
+	}
+    return $sort;    
+}
+
+function careers_func_views_pre_build(&$view) {
+    if ($view->name=='job_openings') {
+        $groupby = careers_func_get_sort_by();
+            $view->display['default']->handler->options['style_options']['grouping'][0]['field']=$groupby;    
+    }
+}
+
+function careers_func_cron() {
+	$feed= file_get_contents('https://washingtonpost.silkroad.com/api/index.cfm?fuseaction=app.getJobListings&FORMAT=xml&JOBPLACEMENT=external&KEYWORD=&VERSION=1');
+	$xml = new SimpleXmlElement($feed);
+	$feedids = array();
+	foreach ($xml as $entry){
+	   $jobid = (string)$entry->jobId[0];
+	   array_push($feedids, $jobid);
+	}
+
+	$nodeids = array();
+	$guids = db_query("SELECT f.guid, n.nid FROM {node} n, {feeds_item} f  WHERE n.nid = f.entity_id AND n.type = 'job'")->fetchAll();
+	foreach ($guids as $guid) {
+		if (!in_array($guid->guid, $feedids)) {
+			node_delete($guid->nid);
+		}
+	}
+	
+	$vid = 11; //department
+    $empty_terms = array();
+	$tree = taxonomy_get_tree($vid, $parent = 0, $max_depth = NULL, $load_entities = FALSE);
+    foreach($tree as $limb){
+		if (empty($limb->name)) {
+			taxonomy_term_delete($limb->tid);
+		}
+    }
+}
+
+function careers_func_feeds_after_import(FeedsSource $source) {
+	$nodes = db_query("SELECT nid FROM {node}  WHERE type='job'")->fetchAll();
+	foreach ($nodes as $node) {
+		$node = node_load($node->nid);
+		$tid = $node->field_department['und'][0]['tid'];
+
+		$dept = taxonomy_term_load($tid);
+		$dept_clean = strip_tags($dept->name);
+		$dept_clean = str_replace("&amp; "," & ",$dept_clean);
+
+		$term = (object) array(
+			'vid' => 11, 
+			'tid' => $tid, 
+			'name' => $dept_clean
+		);
+		taxonomy_term_save($term);
+	}
+}
+
+
+
+
+
+//don't close with ?>

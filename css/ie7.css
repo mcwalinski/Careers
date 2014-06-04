@@ -1,0 +1,9 @@
+#blocksBody {
+    height:10px;
+}
+#content ul,
+#content li {
+    margin-left:10px;
+	list-style-image: none;
+}
+
